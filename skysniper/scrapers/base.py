@@ -25,6 +25,8 @@ class Flight:
     duration_minutes: int = 0
     source: str = ""  # Which scraper found this flight
     deep_link: str = ""  # URL to book
+    seats_available: int = 0  # Number of seats left
+    is_refundable: bool = False  # Can be refunded
     raw_data: dict = field(default_factory=dict)
 
     @property
