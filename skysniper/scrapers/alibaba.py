@@ -40,7 +40,7 @@ class AlibabaScraper(BaseScraper):
                 json=payload,
                 headers=self._get_headers(),
             )
-            response.raise_for_status()
+            response.raise_for_status()  # Synchronous method
             data = response.json()
 
             # Parse response into Flight objects
