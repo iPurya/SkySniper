@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "skysniper"
+version = "0.1.0"
+description = "SkySniper: Automated Flight Price Tracker & Drop Alert"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.9"
+keywords = ["flight", "tracker", "scraper", "price-alert", "travel"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Internet :: WWW/HTTP :: Indexing/Search",
+]
+
+dependencies = [
+    "httpx>=0.27.0",
+    "beautifulsoup4>=4.12.0",
+    "rich>=13.0.0",
+    "click>=8.1.0",
+    "lxml>=5.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+]
+
+[project.scripts]
+skysniper = "skysniper.skysniper:main"
+
+[project.urls]
+Homepage = "https://github.com/iPurya/SkySniper"
+Repository = "https://github.com/iPurya/SkySniper"
+Issues = "https://github.com/iPurya/SkySniper/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["skysniper*"]
