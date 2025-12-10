@@ -213,6 +213,8 @@ def sources():
     # Dynamically load from scrapers registry
     source_info = {
         "alibaba": ("✅ Ready", "alibaba.ir"),
+        "ataair": ("✅ Ready", "ataair.ir"),
+        "mrbilit": ("✅ Ready", "mrbilit.com"),
     }
 
     for name, scraper_class in SCRAPERS.items():

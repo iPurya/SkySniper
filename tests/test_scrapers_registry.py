@@ -4,7 +4,7 @@ Tests for scraper registry.
 
 import pytest
 
-from skysniper.scrapers import SCRAPERS, AlibabaScraper
+from skysniper.scrapers import SCRAPERS, AlibabaScraper, AtaairScraper, MrbilitScraper
 
 
 class TestScraperRegistry:
@@ -15,9 +15,22 @@ class TestScraperRegistry:
         assert "alibaba" in SCRAPERS
         assert SCRAPERS["alibaba"] == AlibabaScraper
 
+    def test_scrapers_registry_contains_ataair(self):
+        """Test that Ataair scraper is registered."""
+        assert "ataair" in SCRAPERS
+        assert SCRAPERS["ataair"] == AtaairScraper
+
+    def test_scrapers_registry_contains_mrbilit(self):
+        """Test that MrBilit scraper is registered."""
+        assert "mrbilit" in SCRAPERS
+        assert SCRAPERS["mrbilit"] == MrbilitScraper
+
     def test_scraper_can_be_instantiated(self):
         """Test that registered scrapers can be instantiated."""
-        scraper_class = SCRAPERS["alibaba"]
-        scraper = scraper_class()
-        assert isinstance(scraper, AlibabaScraper)
-        assert scraper.name == "alibaba"
+        for name, scraper_class in SCRAPERS.items():
+            scraper = scraper_class()
+            assert scraper.name == name
+
+    def test_registry_count(self):
+        """Test that we have expected number of scrapers."""
+        assert len(SCRAPERS) == 3
